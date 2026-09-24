@@ -1,0 +1,47 @@
+{
+  "name": "incivexa",
+  "version": "1.0.0",
+  "description": "Incivexa - Autonomous Incident Response & Telemetry Agent for Node.js, Express, and distributed microservices",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./src/index.js",
+  "types": "./src/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./src/index.d.ts",
+      "import": "./src/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "src",
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test tests/*.test.js",
+    "prepack": "npm test"
+  },
+  "keywords": [
+    "incivexa",
+    "incident-management",
+    "sre",
+    "telemetry",
+    "observability",
+    "error-monitoring",
+    "stacktrace",
+    "express-middleware",
+    "ai-sre",
+    "root-cause-analysis"
+  ],
+  "author": "Incivexa Team",
+  "license": "MIT",
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
