@@ -20,9 +20,18 @@
     "README.md",
     "LICENSE"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RupamManna8/incivexa.git"
+  },
+  "bugs": {
+    "url": "https://github.com/RupamManna8/incivexa/issues"
+  },
+  "homepage": "https://github.com/RupamManna8/incivexa#readme",
   "scripts": {
     "test": "node --test tests/*.test.js",
-    "prepack": "npm test"
+    "prepack": "npm test",
+    "prepublishOnly": "npm test"
   },
   "keywords": [
     "incivexa",
@@ -36,7 +45,7 @@
     "ai-sre",
     "root-cause-analysis"
   ],
-  "author": "Incivexa Team",
+  "author": "Rupam Manna",
   "license": "MIT",
   "engines": {
     "node": ">=16.0.0"

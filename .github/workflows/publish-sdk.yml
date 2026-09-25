@@ -1,0 +1,49 @@
+name: Publish Incivexa SDK to npm
+
+on:
+  release:
+    types: [published]
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry Run (validate package and tests without publishing)'
+        required: false
+        type: boolean
+        default: false
+
+jobs:
+  publish:
+    name: Test & Publish to npm
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+
+    steps:
+      - name: ⬇️ Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 🟢 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: 🧪 Run Automated Tests
+        run: npm test
+
+      - name: 🔍 Verify Package Tarball
+        run: npm pack --dry-run
+
+      - name: 🚀 Publish to npm (Dry Run)
+        if: ${{ github.event.inputs.dry_run == 'true' }}
+        run: echo "Dry run complete! Package is valid and ready for publish."
+
+      - name: 🚀 Publish to npm Registry
+        if: ${{ github.event.inputs.dry_run != 'true' }}
+        run: npm publish --access public --provenance
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
