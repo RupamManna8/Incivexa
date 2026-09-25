@@ -1,6 +1,6 @@
 {
   "name": "incivexa",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Incivexa - Autonomous Incident Response & Telemetry Agent for Node.js, Express, and distributed microservices",
   "type": "module",
   "main": "./dist/index.cjs",
