@@ -44,6 +44,6 @@ jobs:
 
       - name: 🚀 Publish to npm Registry
         if: ${{ github.event.inputs.dry_run != 'true' }}
-        run: npm publish --access public --provenance
+        run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
