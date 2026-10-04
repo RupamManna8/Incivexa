@@ -38,7 +38,7 @@ export class Transport {
 
         const headers = {
           'Content-Type': 'application/json',
-          'User-Agent': 'incivexa-sdk-v1.0.0'
+          'User-Agent': 'incivexa-sdk-v1.0.0' 
         };
 
         if (this.config.key) {
